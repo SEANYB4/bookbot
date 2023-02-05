@@ -23,8 +23,22 @@ def get_num_chars(text):
 path_to_file = "./books/frankenstein.txt"
 with open(path_to_file) as f:
     file_contents = f.read()
-    print(get_num_words(file_contents))
-    print(get_num_chars(file_contents))
+    num_words = get_num_words(file_contents)
+    characters_dict = get_num_chars(file_contents)
+
+    print(f"-- Begin report of {path_to_file} --")
+    print("")
+    print(f"The document contains {num_words} words.")
+    print("")
+
+
+    list = list(characters_dict)
+    list.sort()
+    
+    for i in list:
+        print(f"The letter {i} appears in the text {characters_dict[i]} times.")
+    print("")
+    print("-- This is the end of the report. --")
     
 
 
